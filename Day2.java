@@ -61,6 +61,6 @@ public class Day2{
 			}
 	}
 	return a;
- }
+	}
 }
 
