@@ -1,15 +1,42 @@
 import java.util.ArrayList;
 public class Day2{
  	public static void main(String[]args){
-	ArrayList<Integer> list=new ArrayList<>();
-	list.add(1);
-	list.add(2);
-	list.add(3);
-	list.add(4);
-	System.out.println(	list	);
 
-	System.out.println(change(list));
+	int num=8950;
+	System.out.println(convertToArrayList(num));
+	System.out.println(change(convertToArrayList(num)));
+
  	}
+
+ 	public static ArrayList<Integer> convertToArrayList(int x){
+		System.out.println("Method 1");
+		ArrayList<Integer> list = new ArrayList<>();
+		if(x<10000 && x>=1000){
+			list.add(x/1000);
+			x = x%1000;
+			list.add(x/100);
+			x = x%100;
+			list.add(x/10);
+			x = x%10;
+			list.add(x);
+		}
+		if(x<1000 && x>=100){
+			list.add(x/100);
+			x = x%100;
+			list.add(x/10);
+			x = x%10;
+			list.add(x);
+		}
+		if(x<100 && x>=10){
+			list.add(x/10);
+			x = x%10;
+			list.add(x);
+		}
+		if(x<10 && x>= 0)
+			list.add(x);
+		return list;
+	}
+
  	public static int change(ArrayList<Integer> list){
 		int a=0;
 		for(int i=0;i<list.size();i++){
@@ -40,8 +67,8 @@ public class Day2{
 				list.remove(i);
 
 			}
-
 	}
 	return a;
  }
 }
+
